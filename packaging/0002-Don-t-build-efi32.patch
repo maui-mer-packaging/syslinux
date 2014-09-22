@@ -1,0 +1,40 @@
+From 8a339e31bdfbaa188a113f690501fea201f71f87 Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Tue, 8 Apr 2014 15:15:48 -0400
+Subject: [PATCH 2/2] Don't build efi32.
+
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index b8ee459..5ce63c8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -84,7 +84,7 @@ endif
+ # creating. Which means that we always need a *real* target, such as
+ # 'all', appended to the make goals.
+ #
+-firmware = bios efi32 efi64
++firmware = bios efi64
+ real-target := $(filter-out $(firmware), $(MAKECMDGOALS))
+ real-firmware := $(filter $(firmware), $(MAKECMDGOALS))
+ 
+@@ -222,12 +222,12 @@ endif # ifdef EFI_BUILD
+ 
+ ifeq ($(HAVE_FIRMWARE),)
+ 
+-firmware = bios efi32 efi64
++firmware = bios efi64
+ 
+ # If no firmware was specified the rest of MAKECMDGOALS applies to all
+ # firmware.
+ ifeq ($(filter $(firmware),$(MAKECMDGOALS)),)
+-all strip tidy clean dist spotless install installer netinstall: bios efi32 efi64
++all strip tidy clean dist spotless install installer netinstall: bios efi64
+ 
+ else
+ 
+-- 
+1.9.0
+

@@ -1,0 +1,33 @@
+From 8b8b0ab5cae3e3e47104dfe696d06709f8ce6850 Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Tue, 8 Apr 2014 15:28:12 -0400
+Subject: [PATCH 1/2] Add "install-all target" to top side of HAVE_FIRMWARE.
+
+---
+ Makefile | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index cceb66e..b8ee459 100644
+--- a/Makefile
++++ b/Makefile
+@@ -269,6 +269,16 @@ efi64:
+ 		ARCH=x86_64 BITS=64 EFI_BUILD=1 LDLINUX=ldlinux.e64 \
+ 		$(MAKECMDGOALS)
+ 
++install-all:
++
++install:
++
++netinstall:
++
++clean:
++
++all:
++
+ else # ifeq($(HAVE_FIRMWARE),)
+ 
+ all: all-local subdirs
+-- 
+1.9.0
+
